@@ -1,3 +1,5 @@
-module "github.com/cho4036/algorithmStudy/leetcode/49. Group Anagrams"
+module problem0049
 
 go 1.15
+
+require github.com/stretchr/testify v1.7.0

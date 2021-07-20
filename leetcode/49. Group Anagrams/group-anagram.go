@@ -1,0 +1,34 @@
+package problem0049
+
+import (
+	"strconv"
+)
+
+func groupAnagrams(strs []string) [][]string {
+
+	primes := []int{2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127}
+	answer := make(map[int][]int)
+	output := make([][]string, 0)
+
+	for i, v := range strs {
+		var key int = 1
+		v, _ = strconv.Unquote(v)
+		for _, t := range []byte(v) {
+			key = key * primes[t-97]
+		}
+		if _, exist := answer[key]; !exist {
+			answer[key] = make([]int, 0)
+		}
+		answer[key] = append(answer[key], i)
+	}
+	var i int = 0
+	for _, v := range answer {
+		output = append(output, make([]string, 0))
+		for _, item := range v {
+			output[i] = append(output[i], strs[item])
+
+		}
+		i = i + 1
+	}
+	return output
+}
