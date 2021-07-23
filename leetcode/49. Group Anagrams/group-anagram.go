@@ -1,9 +1,5 @@
 package problem0049
 
-import (
-	"strconv"
-)
-
 func groupAnagrams(strs []string) [][]string {
 
 	primes := []int{2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127}
@@ -12,7 +8,7 @@ func groupAnagrams(strs []string) [][]string {
 
 	for i, v := range strs {
 		var key int = 1
-		v, _ = strconv.Unquote(v)
+		// v, _ = strconv.Unquote(v)
 		for _, t := range []byte(v) {
 			key = key * primes[t-97]
 		}

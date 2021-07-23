@@ -48,7 +48,7 @@ func Test_Problem0049(t *testing.T) {
 		res := groupAnagrams(p.one)
 		for _, v := range res {
 			sort.Strings(v)
-			ast.Equal
+			ast.Equal(a.one[len(v)-1], v, "%v", p)
 		}
 
 	}
